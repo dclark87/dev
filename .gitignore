@@ -1,5 +1,5 @@
 # Repo-specific
-dotfiles/vim/*
+dotfiles/vim/autoload/pathogen.vim
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

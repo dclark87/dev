@@ -16,12 +16,8 @@ fi
 source $HOME/.git/git-completion.bash
 
 # Go projects
-export GOPATH=$HOME/Projects/gopath:$HOME/Projects/workspace
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin:$GOPATH/wbin:$HOME/bin
-export WORKSPACE=$HOME/Projects/workspace
-source $WORKSPACE/src/github.com/pippio/devops/dev/bashrc.arbor
-source <(kubectl completion bash)
-export PROMPT_COMMAND=precmd
+export GOPATH=$HOME/Projects/gopath
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   source $(brew --prefix)/etc/bash_completion
