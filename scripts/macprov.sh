@@ -49,8 +49,7 @@ main() {
   parse_args "$@"
 
   # Install homebrew.
-  BREW=$(which brew)
-  if [ -z "$BREW" ]; then
+  if [ ! -f "`which brew`" ]; then
       echo -e "Installing homebrew...\n"
       /usr/bin/ruby -e \
           "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -94,6 +93,7 @@ main() {
   ln -fs "$DEV_REPO"/dotfiles/pypirc "$HOME"/.pypirc
   ln -fs "$DEV_REPO"/dotfiles/tmux.conf "$HOME"/.tmux.conf
   ln -fs "$DEV_REPO"/dotfiles/vimrc "$HOME"/.vimrc
+  rm -rf "$HOME"/.vim
   ln -fs "$DEV_REPO"/dotfiles/vim "$HOME"/.vim
 
   # Source bash_profile
