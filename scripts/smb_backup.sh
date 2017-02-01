@@ -13,15 +13,28 @@ args:
   --localdir, -l <localdir>  Local directory to mount to.
   --user, -u <user>  Username to mount as.
   --password, -p <password>  Password for specified user to mount drive.
+  --backupdir, -b [backupdir]  Local directory to backup. Default is $HOME directory.
 EOF
 }
 
 parse_args() {
+  BACKUPDIR="$HOME"
   while :; do
     case $1 in
       -h|--help)
         usage
         exit
+        ;;
+      -b|--backupdir)
+        if [ -n "$2" ]; then
+          BACKUPDIR=$2
+          shift
+          shift
+        else
+          echo -e "ERROR: '--backupdir' requires a non-empty string argument" >&2
+          usage
+          exit 1
+        fi
         ;;
       -r|--remotedir)
         if [ -n "$2" ]; then
@@ -81,7 +94,7 @@ parse_args() {
 }
 
 main() {
-
+  # Parse input arguments.
   parse_args "$@"
 
   # Make local directory if it does not exist.
@@ -90,12 +103,15 @@ main() {
   fi
 
   # If the drive already is not mounted, mount it.
-  mounted=$(mount | grep "$REMOTEDIR")
-  if [ -z "mounted" ]; then
+  if mount | grep $REMOTEDIR > /dev/null; then
+    echo "$REMOTEDIR already mounted."
+  else
     echo "Mounting remote...\n"
     mount -t smbfs //"$USER":"$PASSWORD"@"$REMOTEDIR" "$LOCALDIR"
   fi
 
+  # Do rsync copy over.
+  rsync -avzP "$BACKUPDIR" "$LOCALDIR"
 }
 
 main "$@"
