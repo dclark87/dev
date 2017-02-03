@@ -61,6 +61,9 @@ main() {
   # Install packages via brew.
   brew install go htop watch
 
+  # Cask install GUI applications.
+  brew cask install google-chrome iterm2
+
   # Git completion setup.
   mkdir -p "$HOME"/.git
   curl -LSso "$HOME"/.git/git-completion.bash \
