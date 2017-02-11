@@ -62,7 +62,7 @@ main() {
   brew install go htop watch
 
   # Cask install GUI applications.
-  brew cask install google-chrome iterm2
+  brew cask install google-chrome iterm2 dropbox
 
   # Git completion setup.
   mkdir -p "$HOME"/.git
