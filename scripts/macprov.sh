@@ -62,7 +62,7 @@ main() {
   brew install go htop watch
 
   # Cask install GUI applications.
-  brew cask install android-studio google-chrome iterm2 dropbox spotify
+  brew cask install android-studio dropbox google-chrome iterm2 mactex spotify
 
   # Git completion setup.
   mkdir -p "$HOME"/.git
