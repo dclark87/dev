@@ -111,7 +111,12 @@ main() {
   fi
 
   # Do rsync copy over.
-  rsync -avzP "$BACKUPDIR" "$LOCALDIR"
+  rsync -ahP "$BACKUPDIR" "$LOCALDIR" \
+      --exclude 'Library' \
+      --exclude '.*' \
+      --exclude 'Dropbox' \
+      --exclude 'Applications' \
+      --update
 }
 
 main "$@"
