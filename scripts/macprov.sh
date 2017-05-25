@@ -59,10 +59,11 @@ main() {
   brew tap caskroom/cask
 
   # Install packages via brew.
-  brew install go htop watch
+  brew install cmake go htop watch
 
   # Cask install GUI applications.
-  brew cask install android-studio dropbox google-chrome iterm2 mactex spotify sublime-text
+  brew cask install android-studio dropbox google-chrome intellij-idea-ce \
+      iterm2 mactex spotify sublime-text vagrant virtualbox
 
   # Git completion setup.
   mkdir -p "$HOME"/.git
