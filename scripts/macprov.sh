@@ -65,6 +65,9 @@ main() {
   brew cask install android-studio dropbox google-chrome intellij-idea-ce \
       iterm2 mactex spotify sublime-text vagrant virtualbox
 
+  # Vagrant plugins
+  vagrant plugin install vagrant-scp
+
   # Git completion setup.
   mkdir -p "$HOME"/.git
   curl -LSso "$HOME"/.git/git-completion.bash \

@@ -28,5 +28,5 @@ parse_args() {
 
 main() {
   # Install packages
-  apt-get install htop
+  apt-get install build-essential htop
 }
