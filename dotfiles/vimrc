@@ -21,5 +21,3 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_bin_path = expand("~/bin")
-" Enable vim :GoCallers
-let $CPATH = '/Users/daniec/workspace/src/github.com/facebook/rocksdb/include:/usr/local/include'
