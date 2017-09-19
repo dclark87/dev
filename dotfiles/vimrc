@@ -8,6 +8,7 @@ set backspace=indent,eol,start
 set listchars=trail:·,tab:>-
 set list
 set ruler
+set noswapfile
 :set cc=80
 au BufNewFile,BufRead *.md set filetype=markdown
 set clipboard=unnamed
