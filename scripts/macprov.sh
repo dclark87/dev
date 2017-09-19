@@ -63,7 +63,7 @@ main() {
 
   # Cask install GUI applications.
   brew cask install android-studio dropbox google-chrome intellij-idea-ce \
-      iterm2 mactex spotify sublime-text vagrant virtualbox
+      iterm2 mactex spotify sublime-text
 
   # Vagrant plugins
   vagrant plugin install vagrant-scp
