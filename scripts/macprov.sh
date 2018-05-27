@@ -59,7 +59,7 @@ main() {
   brew tap caskroom/cask
 
   # Install packages via brew.
-  brew install cmake doxygen go htop the_silver_searcher watch
+  brew install cmake doxygen go htop parallel the_silver_searcher watch
 
   # Cask install GUI applications.
   brew cask install android-studio dropbox google-chrome intellij-idea-ce \

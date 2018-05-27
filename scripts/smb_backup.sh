@@ -14,6 +14,13 @@ args:
   --user, -u <user>  Username to mount as.
   --password, -p <password>  Password for specified user to mount drive.
   --backupdir, -b [backupdir]  Local directory to backup. Default is $HOME directory.
+
+example:
+  smb_backup.sh --remotedir 192.168.1.188/backup \
+                --localdir ~/Desktop/backup \
+                --user admin \
+                --password password1234 \
+                --backupdir $HOME
 EOF
 }
 
@@ -111,12 +118,13 @@ main() {
   fi
 
   # Do rsync copy over.
-  rsync -ahP "$BACKUPDIR" "$LOCALDIR" \
+  rsync -ahzP "$BACKUPDIR" "$LOCALDIR" \
       --exclude 'Library' \
       --exclude '.*' \
       --exclude 'Dropbox' \
       --exclude 'Applications' \
-      --update
+      --size-only \
+      --delete-during
 }
 
 main "$@"
