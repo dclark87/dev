@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-set -e
+set -ex
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 usage() {
   cat >&2 <<EOF
@@ -113,11 +114,12 @@ main() {
   if mount | grep $REMOTEDIR > /dev/null; then
     echo "$REMOTEDIR already mounted."
   else
-    echo "Mounting remote...\n"
+    echo "Mounting remote..."
     mount -t smbfs //"$USER":"$PASSWORD"@"$REMOTEDIR" "$LOCALDIR"
   fi
 
   # Do rsync copy over.
+  echo "Running rsync backup..."
   rsync -ahzP "$BACKUPDIR" "$LOCALDIR" \
       --exclude 'Library' \
       --exclude '.*' \
