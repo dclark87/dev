@@ -44,7 +44,7 @@ main() {
   brew install go htop the_silver_searcher watch
 
   # Cask install GUI applications.
-  brew cask install iterm2 mactex
+  brew cask install google-chrome iterm2 mactex
 }
 
 main "$@"
