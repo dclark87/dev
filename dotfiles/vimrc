@@ -31,6 +31,9 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
+" Keyboard shortcut for NERDTree.
+map <C-n> :NERDTreeToggle<CR>
+
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
