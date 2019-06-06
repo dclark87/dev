@@ -1,17 +1,27 @@
-execute pathogen#infect()
+" Enable filetype detection, plugin loading, and indent formatting.
 filetype plugin indent on
+" Enable syntax highlighting.
 syntax on
-set shiftwidth=4
-set tabstop=4
-set expandtab
-set backspace=indent,eol,start
-set listchars=trail:·,tab:>-
-set list
-set ruler
-set noswapfile
-:set cc=80
-au BufNewFile,BufRead *.md set filetype=markdown
+" Specify system clipboard for copy+paste.
 set clipboard=unnamed
+" Set right-side boarder line.
+set cc=80
+" Enable backspace.
+set backspace=indent,eol,start
+" Show white spaces.
+set list
+" Set specific white space characters.
+set listchars=trail:·,tab:>-
+" Disable swap files.
+set noswapfile
+" Enable row and column display of cursor.
+set ruler
+" Set tab to four spaces.
+set tabstop=4
+" Indent corresponds to single tab.
+set shiftwidth=4
+" On pressing tab, insert spaces.
+set expandtab
 
 " Go syntax highlighting
 let g:go_highlight_functions = 1
@@ -20,4 +30,13 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-let g:go_bin_path = expand("~/bin")
+
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" Initialize plugin system
+call plug#end()

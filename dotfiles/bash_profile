@@ -3,14 +3,10 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 # Git completion
-source $HOME/.git/git-completion.bash
+source "$HOME"/.git/git-completion.bash
 
-# Go projects
-export PATH=$PATH:/usr/local/go/bin
+# GOPATH
+export GOPATH="$HOME"/go
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  source $(brew --prefix)/etc/bash_completion
-fi
-
-# MacTex
-export PATH=/usr/local/texlive/2016/bin/universal-darwin:$PATH
+# Aliases
+alias k="kubectl"

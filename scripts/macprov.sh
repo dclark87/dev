@@ -37,14 +37,19 @@ main() {
           "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
 
+  # Vim.
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  git clone https://github.com/scrooloose/nerdtree.git ~/.vim/plugged/nerdtree
+
   # Install brew cask.
   brew tap caskroom/cask
 
   # Install packages via brew.
-  brew install go htop the_silver_searcher watch
+  brew install go htop kubernetes-cli the_silver_searcher watch
 
   # Cask install GUI applications.
-  brew cask install google-chrome iterm2 mactex
+  brew cask install google-chrome google-cloud-sdk iterm2 jetbrains-toolbox mactex
 }
 
 main "$@"
