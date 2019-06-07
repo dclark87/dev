@@ -49,7 +49,7 @@ main() {
   brew install go htop jq kubernetes-cli the_silver_searcher watch
 
   # Cask install GUI applications.
-  brew cask install google-chrome google-cloud-sdk iterm2 jetbrains-toolbox mactex meld
+  brew cask install docker google-chrome google-cloud-sdk iterm2 jetbrains-toolbox mactex meld
 }
 
 main "$@"
