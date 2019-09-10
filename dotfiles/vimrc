@@ -34,7 +34,7 @@ let g:go_highlight_build_constraints = 1
 " Auto-start NERDTree
 autocmd vimenter * NERDTree
 " Keyboard shortcut for NERDTree.
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle %<CR>
 
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
