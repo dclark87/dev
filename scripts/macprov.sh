@@ -27,29 +27,25 @@ parse_args() {
   done
 }
 
+# Install homebrew.
+function install_brew() {
+  echo "Installing Homebrew..."
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+}
+
 main() {
   parse_args "$@"
 
-  # Install homebrew.
-  if [ ! -f "`which brew`" ]; then
-      echo -e "Installing homebrew...\n"
-      /usr/bin/ruby -e \
-          "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  fi
+  # Homebrew
+  which brew || install_brew
 
-  # Vim.
-  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  git clone https://github.com/scrooloose/nerdtree.git ~/.vim/plugged/nerdtree
-
-  # Install brew cask.
-  brew tap caskroom/cask
+  brew update && brew upgrade
 
   # Install packages via brew.
   brew install go htop jq kubernetes-cli terraform the_silver_searcher watch
 
   # Cask install GUI applications.
-  brew cask install docker google-chrome google-cloud-sdk iterm2 jetbrains-toolbox mactex meld
+  brew cask install docker google-chrome google-cloud-sdk iterm2 jetbrains-toolbox slack
 }
 
 main "$@"
