@@ -1,2 +1,3 @@
 # Stop skipping of words at forward slashes.
 WORDCHARS=${WORDCHARS/\/}
+WORDCHARS=${WORDCHARS/-}
