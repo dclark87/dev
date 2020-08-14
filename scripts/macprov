@@ -42,7 +42,7 @@ main() {
   brew update && brew upgrade
 
   # Install packages via brew.
-  brew install go htop jq kubectl the_silver_searcher watch
+  brew install gnupg go htop jq kubectl the_silver_searcher watch
 
   # Cask install GUI applications.
   brew cask install docker google-chrome google-cloud-sdk iterm2 jetbrains-toolbox keybase slack visual-studio-code
