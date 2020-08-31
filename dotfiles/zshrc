@@ -1,8 +1,11 @@
 # Stop skipping of words at forward slashes.
 WORDCHARS=${WORDCHARS/\/}
 WORDCHARS=${WORDCHARS/-}
+<<<<<<< HEAD
 # Aliases
 alias k=kubectl
 alias ls='ls -G'
 # direnv
 eval "$(direnv hook zsh)"
+=======
+>>>>>>> 3cd24573e096bc2cf19555e83b2ccb8d7a469f8f
