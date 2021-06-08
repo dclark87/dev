@@ -1,9 +1,0 @@
-[submodule "dotfiles/vim/bundle/vim-go"]
-	path = dotfiles/vim/bundle/vim-go
-	url = https://github.com/fatih/vim-go
-[submodule "dotfiles/vim/bundle/thrift.vim"]
-	path = dotfiles/vim/bundle/thrift.vim
-	url = https://github.com/solarnz/thrift.vim
-[submodule "dotfiles/vim/bundle/nerdtree"]
-	path = dotfiles/vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git

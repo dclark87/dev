@@ -1,17 +1,7 @@
-" Enable filetype detection, plugin loading, and indent formatting.
-filetype plugin indent on
-" Enable syntax highlighting.
-syntax on
-" Specify system clipboard for copy+paste.
-set clipboard=unnamed
 " Set right-side boarder line.
 set cc=80
 " Enable backspace.
 set backspace=indent,eol,start
-" Show white spaces.
-set list
-" Set specific white space characters.
-set listchars=trail:·,tab:>-
 " Disable swap files.
 set noswapfile
 " Enable row and column display of cursor.
@@ -20,13 +10,26 @@ set ruler
 set tabstop=4
 " Indent corresponds to single tab.
 set shiftwidth=4
-" On pressing tab, insert spaces.
-set expandtab
 
-" Go syntax highlighting
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
+" Install vim-plug plugin manager.
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Initialize NERDTree plugin.
+call plug#begin()
+  Plug 'preservim/nerdtree'
+call plug#end()
+
+" Start NERDTree. If a file is specified, move the cursor to its window.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+
+" Set NERDTree toggle.
+nnoremap <C-t> :NERDTreeToggle<CR>
+
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif

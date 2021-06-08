@@ -7,6 +7,7 @@ brew 'kubectl'
 brew 'terraform'
 brew 'the_silver_searcher'
 brew 'watch'
+brew 'tree'
 
 cask 'docker'
 cask 'google-chrome'
