@@ -1,3 +1,7 @@
+" Enable filetype detection, plugin loading, and indent formatting.
+filetype plugin indent on
+" Enable syntax highlighting.
+syntax on
 " Set right-side boarder line.
 set cc=80
 " Enable backspace.
@@ -10,6 +14,10 @@ set ruler
 set tabstop=4
 " Indent corresponds to single tab.
 set shiftwidth=4
+" Set specific white space characters.
+set listchars=trail:·,tab:>-
+" Show white spaces.
+set list
 
 " Install vim-plug plugin manager.
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
